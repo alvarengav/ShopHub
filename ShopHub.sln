@@ -5,25 +5,27 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93FEFC26-0753-4C80-8172-4BBC050DD2DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "src\ApiGateway\ApiGateway.csproj", "{35B544A9-0497-4005-A82D-ED0A0EB2C46F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "src\ApiGateway\ApiGateway.csproj", "{35B544A9-0497-4005-A82D-ED0A0EB2C46F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService", "{86ABF95B-BCC5-48F8-AC3B-49E75A562C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.API", "src\UserService\UserService.API\UserService.API.csproj", "{252D2906-252A-4112-913A-FC596AEBBA07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.API", "src\UserService\UserService.API\UserService.API.csproj", "{252D2906-252A-4112-913A-FC596AEBBA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "src\UserService\UserService.Domain\UserService.Domain.csproj", "{F126A2FD-512A-46F6-8924-69E0D81A67C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Domain", "src\UserService\UserService.Domain\UserService.Domain.csproj", "{F126A2FD-512A-46F6-8924-69E0D81A67C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "src\UserService\UserService.Infrastructure\UserService.Infrastructure.csproj", "{6C36F740-A2E3-41B7-AAC3-4C351F08A8C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Infrastructure", "src\UserService\UserService.Infrastructure\UserService.Infrastructure.csproj", "{6C36F740-A2E3-41B7-AAC3-4C351F08A8C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderService", "OrderService", "{4C371724-A32C-4344-9F64-3281A93538D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.API", "src\OrderService\OrderService.API\OrderService.API.csproj", "{A68A5697-A901-4BE1-9175-75C70CAAFC75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.API", "src\OrderService\OrderService.API\OrderService.API.csproj", "{A68A5697-A901-4BE1-9175-75C70CAAFC75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Domain", "src\OrderService\OrderService.Domain\OrderService.Domain.csproj", "{FC11B075-6419-4EF3-B43A-7038869B873C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Domain", "src\OrderService\OrderService.Domain\OrderService.Domain.csproj", "{FC11B075-6419-4EF3-B43A-7038869B873C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Infrastructure", "src\OrderService\OrderService.Infrastructure\OrderService.Infrastructure.csproj", "{3F3209AC-C4B3-4486-91F9-7A9207AFE66F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService.Infrastructure", "src\OrderService\OrderService.Infrastructure\OrderService.Infrastructure.csproj", "{3F3209AC-C4B3-4486-91F9-7A9207AFE66F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7040609E-29AA-486C-BBC4-8A1B7606046A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Application", "src\OrderService\OrderService.Application\OrderService.Application.csproj", "{5D213D6C-D2A2-42E0-B62E-6F6956B60FAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{7040609E-29AA-486C-BBC4-8A1B7606046A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7040609E-29AA-486C-BBC4-8A1B7606046A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7040609E-29AA-486C-BBC4-8A1B7606046A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D213D6C-D2A2-42E0-B62E-6F6956B60FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D213D6C-D2A2-42E0-B62E-6F6956B60FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D213D6C-D2A2-42E0-B62E-6F6956B60FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D213D6C-D2A2-42E0-B62E-6F6956B60FAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{A68A5697-A901-4BE1-9175-75C70CAAFC75} = {4C371724-A32C-4344-9F64-3281A93538D1}
 		{FC11B075-6419-4EF3-B43A-7038869B873C} = {4C371724-A32C-4344-9F64-3281A93538D1}
 		{3F3209AC-C4B3-4486-91F9-7A9207AFE66F} = {4C371724-A32C-4344-9F64-3281A93538D1}
+		{5D213D6C-D2A2-42E0-B62E-6F6956B60FAC} = {4C371724-A32C-4344-9F64-3281A93538D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB508423-73C7-476C-AFC3-D87BC9016839}
