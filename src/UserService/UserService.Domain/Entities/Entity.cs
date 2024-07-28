@@ -1,4 +1,4 @@
-﻿namespace OrderService.Domain.Entities;
+﻿namespace UserService.Domain.Entities;
 
 public abstract class Entity<TId>
 {
