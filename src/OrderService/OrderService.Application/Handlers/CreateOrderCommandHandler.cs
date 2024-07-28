@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using OrderService.Application.Commands;
+using OrderService.Domain.Builders;
 using OrderService.Domain.Entities;
 using OrderService.Domain.Repositories;
 using OrderService.Domain.ValueObjects;
@@ -20,13 +21,11 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Ord
         CancellationToken cancellationToken
     )
     {
-        var order = new Order(new UserId(request.userId));
-        await _orderRepository.AddOrderAsync(order);
+        var orderBuilder = new OrderBuilder().SetUserId(new UserId(request.userId));
 
         foreach (var item in request.orderItems)
         {
-            order.AddOrderItem(
-                order.Id,
+            orderBuilder.AddOrderItem(
                 new ProductId(item.ProductId),
                 item.ProductName,
                 item.UnitPrice,
@@ -34,7 +33,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Ord
             );
         }
 
-        await _orderRepository.UpdateOrderAsync(order);
+        var order = orderBuilder.Build();
+        await _orderRepository.AddOrderAsync(order);
         return order.Id;
     }
 }

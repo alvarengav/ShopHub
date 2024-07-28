@@ -4,17 +4,19 @@ namespace OrderService.Domain.Entities;
 
 public class Order : Entity<OrderId>
 {
+    private readonly List<OrderItem> _orderItems = new();
     public UserId UserId { get; private set; }
 
     public DateTime OrderDate { get; private set; }
 
-    public ICollection<OrderItem> OrderItems { get; private set; }
+    public IReadOnlyCollection<OrderItem> OrderItems => _orderItems.AsReadOnly();
+
+    private Order() { }
 
     public Order(UserId userId)
     {
         UserId = userId;
         OrderDate = DateTime.UtcNow;
-        OrderItems = new List<OrderItem>();
     }
 
     public void UpdateUserId(UserId userId) => UserId = userId;
@@ -32,7 +34,7 @@ public class Order : Entity<OrderId>
 
     public void RemoveOrderItem(OrderItem orderItem)
     {
-        OrderItems.Remove(orderItem);
+        _orderItems.Remove(orderItem);
     }
 
     public void AddOrderItem(
@@ -44,11 +46,16 @@ public class Order : Entity<OrderId>
     )
     {
         var orderItem = new OrderItem(orderId, productId, productName, unitPrice, quantity);
-        OrderItems.Add(orderItem);
+        _orderItems.Add(orderItem);
+    }
+
+    public void AddOrderItem(OrderItem orderItem)
+    {
+        _orderItems.Add(orderItem);
     }
 
     public void ClearOrderItems()
     {
-        OrderItems.Clear();
+        _orderItems.Clear();
     }
 }
