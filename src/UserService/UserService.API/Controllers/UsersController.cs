@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using System.Security.Claims;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserService.Application.Commands;
 using UserService.Application.DTOs;
+using UserService.Domain.ValueObjects;
 
 namespace UserService.API.Controllers;
 
@@ -53,9 +55,20 @@ public class UsersController : ControllerBase
     }
 
     [Authorize]
-    [HttpGet]
-    public IActionResult GetUsers()
+    [HttpGet("me")]
+    public async Task<IActionResult> GetAuthenticatedUserInfo()
     {
-        return Ok(new { Message = "Users endpoints" });
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var email = User.FindFirstValue(ClaimTypes.Email);
+
+        if (userId is null || email is null)
+            return Unauthorized();
+
+        var query = new GetAuthenticatedUserInfoQuery(new UserId(Guid.Parse(userId)), email);
+        var userInfo = await _mediator.Send(query);
+        if (userInfo is null)
+            return Unauthorized();
+
+        return Ok(userInfo);
     }
 }
