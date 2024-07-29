@@ -13,6 +13,11 @@ services:
     build:
       context: .
       dockerfile: src/OrderService/OrderService.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQ__Host=rabbitmq
+    ports:
+      - '5001:80'
     depends_on:
       - rabbitmq
     restart: on-failure
@@ -22,6 +27,11 @@ services:
     build:
       context: .
       dockerfile: src/UserService/UserService.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQ__Host=rabbitmq
+    ports:
+      - '5002:80'
     depends_on:
       - rabbitmq
     restart: on-failure
@@ -31,6 +41,11 @@ services:
     build:
       context: .
       dockerfile: src/NotificationService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQ__Host=rabbitmq
+    ports:
+      - '5003:80'
     depends_on:
       - rabbitmq
     restart: on-failure
@@ -40,7 +55,18 @@ services:
     build:
       context: .
       dockerfile: src/ApiGateway/Dockerfile
+    ports:
+      - '8080:8080'
+      # - '8081:8081'
     depends_on:
       - orderservice
       - userservice
     restart: on-failure
+    volumes:
+      - ${USERPROFILE}/.aspnet/https:/https/
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+      # ASPNETCORE_HTTPs_PORTS: 8081
+      # ASPNETCORE_Kestrel__Certificates__Default__Password: develop
+      # ASPNETCORE_Kestrel__Certificates__Default__Path: /https/aspnetapp.pfx
