@@ -9,7 +9,6 @@ using OrderService.Domain.ValueObjects;
 
 namespace OrderService.API.Controllers;
 
-[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class OrdersController : ControllerBase
