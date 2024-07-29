@@ -16,21 +16,21 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
       - RabbitMQ__Host=rabbitmq
-    ports:
-      - '5001:80'
+    # ports:
+    #   - '5001:80'
 
   userservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
       - RabbitMQ__Host=rabbitmq
-    ports:
-      - '5002:80'
+    # ports:
+    #   - '5002:80'
 
   notificationservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
       - RabbitMQ__Host=rabbitmq
-    ports:
-      - '5003:80'
+    # ports:
+    #   - '5003:80'
