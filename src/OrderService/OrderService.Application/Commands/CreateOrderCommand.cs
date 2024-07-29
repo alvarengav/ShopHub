@@ -5,6 +5,6 @@ using OrderService.Domain.ValueObjects;
 namespace OrderService.Application.Commands;
 
 public readonly record struct CreateOrderCommand(
-    long userId,
+    string userId,
     IReadOnlyList<OrderItemDTO> orderItems
 ) : IRequest<OrderId>;

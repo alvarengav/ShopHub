@@ -1,3 +1,3 @@
 ﻿namespace OrderService.Domain.ValueObjects;
 
-public record UserId(long userId) : StronglyTypedId<long>(userId);
+public record UserId(string Value) : StronglyTypedId<string>(Value);

@@ -7,7 +7,7 @@ namespace OrderService.Infrastructure.Serialization;
 public class StronglyTypedIdJsonConverter<TStronglyTypedId, TValue>
     : JsonConverter<TStronglyTypedId>
     where TStronglyTypedId : StronglyTypedId<TValue>
-    where TValue : struct, IEquatable<TValue>
+    where TValue : IEquatable<TValue>
 {
     public override TStronglyTypedId Read(
         ref Utf8JsonReader reader,

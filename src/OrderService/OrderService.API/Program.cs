@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using OrderService.API.OptionsSetup;
 using OrderService.Application.Commands;
+using OrderService.Application.Messaging;
 using OrderService.Domain.Repositories;
 using OrderService.Domain.ValueObjects;
 using OrderService.Infrastructure.Data;
+using OrderService.Infrastructure.Messaging;
 using OrderService.Infrastructure.Repositories;
 using OrderService.Infrastructure.Serialization;
 
@@ -31,9 +33,12 @@ builder
             new StronglyTypedIdJsonConverter<OrderItemId, long>()
         );
         options.JsonSerializerOptions.Converters.Add(
-            new StronglyTypedIdJsonConverter<UserId, long>()
+            new StronglyTypedIdJsonConverter<UserId, string>()
         );
     });
+
+builder.Services.AddSingleton<RabbitMQEventPublisher>();
+builder.Services.AddSingleton<IEventPublisher, RabbitMQEventPublisher>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

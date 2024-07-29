@@ -1,3 +1,3 @@
 ﻿namespace OrderService.Application.DTOs;
 
-public record CreateOrderRequest(long UserId, IReadOnlyList<OrderItemDTO> OrderItems);
+public record CreateOrderRequest(string UserId, IReadOnlyList<OrderItemDTO> OrderItems);

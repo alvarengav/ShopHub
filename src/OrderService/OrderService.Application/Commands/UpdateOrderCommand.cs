@@ -6,6 +6,6 @@ namespace OrderService.Application.Commands;
 
 public readonly record struct UpdateOrderCommand(
     long OrderId,
-    long UserId,
+    string UserId,
     IReadOnlyList<OrderItemDTO> OrderItems
 ) : IRequest<Unit>;
